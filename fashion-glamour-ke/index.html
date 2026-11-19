@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fashion Glamour KE</title>
+<script>
+/* If a file cannot be found, show which one instead of a blank page. */
+window.__missing=[];
+window.__fail=function(el){window.__missing.push(el.getAttribute('src')||el.getAttribute('href'));};
+window.addEventListener('load',function(){
+  if(!window.__missing.length)return;
+  var b=document.createElement('div');b.setAttribute('role','alert');
+  b.style.cssText='position:fixed;left:0;right:0;top:0;z-index:99;background:#fff3cd;color:#5c3d00;padding:12px 16px;font:14px system-ui,sans-serif;border-bottom:2px solid #e0a800';
+  b.innerHTML='<b>Some files did not load:</b> '+window.__missing.join(', ')+'. Unzip the whole folder first, then open index.html from inside it with every file left where it is.';
+  document.body.appendChild(b);
+});
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="css/styles.css" onerror="__fail(this)">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand"><span>Graced Fashion and Glamour</span><h1>Fashion Glamour KE</h1></div>
+      <button class="btn" id="logout" type="button">Log out</button>
+    </header>
+    <main class="soon">
+      <h2>Fashion Glamour KE is set up and waiting</h2>
+      <p>You are signed in to this account. The system itself is the next thing we build here, in this folder.</p>
+      <p class="hint">Files for this account live in <code>fashion-glamour-ke/</code>.</p>
+    </main>
+  </div>
+  <script src="../shared/auth.js" onerror="__fail(this)"></script>
+  <script src="js/main.js" onerror="__fail(this)"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graced Fashion and Glamour</title>
+<script>
+/* If a file cannot be found, show which one instead of a blank page. */
+window.__missing=[];
+window.__fail=function(el){window.__missing.push(el.getAttribute('src')||el.getAttribute('href'));};
+window.addEventListener('load',function(){
+  if(!window.__missing.length)return;
+  var b=document.createElement('div');b.setAttribute('role','alert');
+  b.style.cssText='position:fixed;left:0;right:0;top:0;z-index:99;background:#fff3cd;color:#5c3d00;padding:12px 16px;font:14px system-ui,sans-serif;border-bottom:2px solid #e0a800';
+  b.innerHTML='<b>Some files did not load:</b> '+window.__missing.join(', ')+'. Unzip the whole folder first, then open index.html from inside it with every file left where it is.';
+  document.body.appendChild(b);
+});
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="shared/login.css" onerror="__fail(this)">
+</head>
+<body>
+  <noscript>This page needs JavaScript turned on.</noscript>
+  <main class="login">
+    <div class="brand"><span>Sign in</span><h1>Graced Fashion and Glamour</h1></div>
+    <form class="box" id="loginForm" autocomplete="on">
+      <p class="sub">Use the username and password for your account. You will go straight to that account's own page.</p>
+      <div class="field"><label for="u">Username</label><input id="u" name="username" required autocomplete="username" autocapitalize="none" spellcheck="false"></div>
+      <div class="field"><label for="p">Password</label><input id="p" name="password" type="password" required autocomplete="current-password"></div>
+      <p class="err" id="err" role="alert" hidden>That username or password is not right. Try again.</p>
+      <button class="btn" type="submit">Sign in</button>
+    </form>
+    <p class="fine">Accounts: Custom Couture, Fashion Glamour KE and Silky Stylish. Each one is a separate page.</p>
+  </main>
+  <script src="shared/auth.js" onerror="__fail(this)"></script>
+  <script>
+    (function(){
+      var done=GFG_AUTH.session();
+      if(done){var a=GFG_AUTH.accounts.filter(function(x){return x.id===done;})[0];if(a){location.replace(a.page);return;}}
+      document.getElementById('loginForm').addEventListener('submit',function(e){
+        e.preventDefault();
+        var acc=GFG_AUTH.login(document.getElementById('u').value,document.getElementById('p').value);
+        if(acc){location.href=acc.page;}
+        else{document.getElementById('err').hidden=false;var p=document.getElementById('p');p.value='';p.focus();}
+      });
+    })();
+  </script>
+</body>
+</html>

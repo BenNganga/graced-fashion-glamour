@@ -1,0 +1,34 @@
+/* Colours (light and dark), page layout, header, tabs and headings. Change the look of the whole app here. */
+:root{
+  --bg:#f4f6f5; --surface:#ffffff; --fg:#13292c; --muted:#5d7276; --line:#d9e2e1;
+  --accent:#1c5d63; --accent-fg:#ffffff; --gold:#b8892e; --soft:#e4eeed;
+  --good:#2b7a52; --warn:#a8650a; --bad:#b3261e;
+  --display:'Cormorant Garamond',Georgia,serif; --body:'DM Sans',system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b1a1c; --surface:#122629; --fg:#e8f2f1; --muted:#9bb5b8; --line:#244246;
+  --accent:#5cc0c8; --accent-fg:#06191b; --gold:#e0b862; --soft:#183236;
+  --good:#6fd1a0; --warn:#f0b35a; --bad:#ff8a80; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1a1c; --surface:#122629; --fg:#e8f2f1; --muted:#9bb5b8; --line:#244246;
+  --accent:#5cc0c8; --accent-fg:#06191b; --gold:#e0b862; --soft:#183236;
+  --good:#6fd1a0; --warn:#f0b35a; --bad:#ff8a80; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.45;margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 40px}
+.wrap{max-width:1000px;margin:0 auto}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;padding:8px 0 14px}
+.brand h1{font-family:var(--display);font-weight:700;font-size:32px;line-height:1;margin:0}
+.brand span{font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--gold);font-weight:700}
+.hright{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+nav{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:18px}
+nav button{flex:0 0 auto;border:0;background:transparent;color:var(--muted);font:500 14px var(--body);padding:9px 16px;border-radius:999px;cursor:pointer}
+nav button[aria-current="true"]{background:var(--accent);color:var(--accent-fg)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h2{font-family:var(--display);font-size:27px;font-weight:600;margin:0 0 4px;line-height:1.1}
+h3{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:20px 0 10px;font-weight:700}
+.sub{color:var(--muted);margin:0 0 14px;font-size:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}
